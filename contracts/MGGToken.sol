@@ -7,12 +7,9 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract MGGToken is ERC20, Ownable {
     uint256 private constant INITIAL_SUPPLY = 114_600_000_000;
 
-    
-
-    constructo {
+    constructor() ERC20("MGG Token", "MGG") {
         _mint(msg.sender, INITIAL_SUPPLY * 10 ** decimals());
     }
-
 
     function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
@@ -21,5 +18,4 @@ contract MGGToken is ERC20, Ownable {
     function burn(uint256 amount) public {
         _burn(msg.sender, amount);
     }
-
 }
